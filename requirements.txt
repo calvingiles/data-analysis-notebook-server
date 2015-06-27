@@ -1,0 +1,12 @@
+pymongo
+psycopg2
+SQLAlchemy
+unidecode
+xlrd
+mpld3
+beautifulsoup4
+qgrid
+nltk
+gensim
+lda
+tweepy

@@ -1,8 +1,0 @@
-Host github-private-repo-a
-  HostName github.com
-  User git
-  IdentityFile /root/.ssh/id_rsa_private-repo-a
-Host github-private-repo-b
-  HostName github.com
-  User git
-  IdentityFile /root/.ssh/id_rsa_private-repo-b

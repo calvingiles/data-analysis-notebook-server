@@ -11,11 +11,6 @@ RUN apt-get update
 # Install software
 RUN apt-get install -y git
 
-## install pyodbc so we can talk to MS SQL
-# install unixodbc and freetds
-# RUN apt-get -y install unixodbc unixodbc-dev freetds-dev tdsodbc
-# COPY odbcinst.ini /etc/odbcinst.ini
-
 # Install postgres libraries and python dev libraries so we install psycopg2 later
 RUN apt-get update && apt-get install libpq-dev python-dev
 
@@ -24,29 +19,10 @@ COPY requirements.txt /install_files/requirements.txt
 RUN pip2 install -r /install_files/requirements.txt
 RUN pip3 install -r /install_files/requirements.txt
 
-# Make ssh dir
-# RUN mkdir /root/.ssh/
-
-## Authenticate with github
-# Copy over deploy key, and set permissions
-# COPY ssh_config /root/.ssh/config
-# COPY id_rsa /root/.ssh/id_rsa
-# RUN chmod 600 /root/.ssh/id_rsa
-
 # Create known_hosts
 RUN touch /root/.ssh/known_hosts
 # Add github key
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts
-
-# Clone private repo into the docker container
-# RUN mkdir -p /repos/private-repo-name
-# WORKDIR /repos/private-repo-name
-# RUN git clone git@github-private-repo-a:user/private-repo-name.git .
-# RUN python2 setup.py develop
-# RUN python3 setup.py develop
-
-# Get rid of ssh key from image now repos have been cloned
-# RUN rm /root/.ssh/id_rsa
 
 # Install pyspark config to notebook
 COPY 00-pyspark-setup.py /root/.ipython/profile_default/startup/00-pyspark-setup.py

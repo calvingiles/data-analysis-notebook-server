@@ -1,0 +1,8 @@
+server:
+  build: .
+  environment:
+    PASSWORD:
+  volumes:
+    - "~/projects:/notebooks"
+  ports:
+   - "443:8888"

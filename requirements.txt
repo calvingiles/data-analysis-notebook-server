@@ -10,3 +10,5 @@ nltk
 gensim
 lda
 tweepy
+bottleneck
+numexpr

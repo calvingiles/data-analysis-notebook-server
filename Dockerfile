@@ -20,6 +20,7 @@ RUN pip2 install -r /install_files/requirements.txt
 RUN pip3 install -r /install_files/requirements.txt
 
 # Create known_hosts
+RUN mkdir -p /root/.ssh
 RUN touch /root/.ssh/known_hosts
 # Add github key
 RUN ssh-keyscan github.com >> /root/.ssh/known_hosts

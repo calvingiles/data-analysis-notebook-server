@@ -1,5 +1,5 @@
 server:
-  build: .
+  image: calvingiles/data-analysis-notebook-server
   environment:
     PASSWORD:
   volumes:
